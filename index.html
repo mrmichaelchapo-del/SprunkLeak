@@ -13,3 +13,23 @@
   opacity: 1;
 }
   </style>
+<script>
+const words = ["archives", "preserved games", "playable SB3s", "smooth games"];
+let i = 0;
+
+const el = document.getElementById("changer");
+
+function changeWord() {
+  el.classList.add("fade-out");
+
+  setTimeout(() => {
+    el.textContent = words[i];
+    el.classList.remove("fade-out");
+    el.classList.add("fade-in");
+    i = (i + 1) % words.length;
+  }, 500);
+}
+
+el.textContent = words[0];
+setInterval(changeWord, 2000);
+</script>
